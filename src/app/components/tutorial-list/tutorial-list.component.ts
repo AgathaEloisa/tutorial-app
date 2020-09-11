@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TutorialListService } from '../../service/tutorial-list.service';
 
 interface TutorialDetail {
-  title: string;
+  title: any;
   speaker: string;
 /*   date: Date; */
   date: string;
@@ -13,22 +14,23 @@ interface TutorialDetail {
   styleUrls: ['./tutorial-list.component.css']
 })
 export class TutorialListComponent implements OnInit {
+  tutorialDetail: TutorialDetail[] = [];
+  constructor( public tutorialList: TutorialListService ) {
 
-  tutorialDetail: TutorialDetail[] = [
-    {
-      title: 'Curso Node JS',
-      speaker: 'Felipe Nieto',
-      date: '20 sep.2020'
-    },
-    {
-      title: 'Testing React with Enzime',
-      speaker: 'Juan Morán',
-      date: '25 sep. 2020'
-    }
-  ];
-  constructor() { }
+  }
 
-  ngOnInit(): void {
+  ngOnInit(): any {
+    this.tutorialList.getItems('https://rayentutorialtestapp.azurewebsites.net/tutorials').subscribe((res: any) => {
+
+      this.tutorialDetail = [
+        {
+          title: res[0].nombre,
+          speaker: res[0].profesor,
+          date: res[0].fecha
+        }
+      ];
+      console.log('res: ', res);
+    });
   }
 
 }

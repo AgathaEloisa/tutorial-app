@@ -11,16 +11,18 @@ import { startWith, map } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
   title = 'Tutoriales';
 
-  constructor() { }
+  constructor() {
+
+  }
 
   /* Search field */
     control = new FormControl();
-  streets: string[] = ['Champs-Élysées', 'Lombard Street', 'Abbey Road', 'Fifth Avenue'];
-  filteredStreets: Observable<string[]>;
+  tutorials: string[] = ['Curso Node JS', 'Testing React with Enzime'];
+  filteredTutorials: Observable<string[]>;
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    this.filteredStreets = this.control.valueChanges.pipe(
+    this.filteredTutorials = this.control.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     );
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = this._normalizeValue(value);
-    return this.streets.filter(street => this._normalizeValue(street).includes(filterValue));
+    return this.tutorials.filter(street => this._normalizeValue(street).includes(filterValue));
   }
 
   private _normalizeValue(value: string): string {

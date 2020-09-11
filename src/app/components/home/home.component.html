@@ -8,8 +8,8 @@
            [formControl]="control"
            [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
-        {{street}}
+      <mat-option *ngFor="let tutorial of filteredTutorials | async" [value]="tutorial">
+        {{tutorial}}
       </mat-option>
     </mat-autocomplete>
   </form>
@@ -26,9 +26,10 @@
       class="btn-delete">ELIMINAR TODOS</button>
 
     <!-- add item -->
-  <button mat-fab
+  <a mat-fab
     color="primary"
     aria-label="Add item"
-    class="add-item">
+    class="add-item"
+    href="add-tutorial">
     <mat-icon>+</mat-icon>
-  </button>
+  </a>

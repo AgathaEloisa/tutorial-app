@@ -8,12 +8,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-
-/* Angular Material */
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { DetailTutorialComponent } from './components/detail-tutorial/detail-tutorial.component';
 import { ModifyTutorialComponent } from './components/modify-tutorial/modify-tutorial.component';
+
+/* Angular Material */
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { OrderByComponent } from './components/order-by/order-by.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { TutorialListComponent } from './components/tutorial-list/tutorial-list.component';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -22,12 +32,22 @@ import { ModifyTutorialComponent } from './components/modify-tutorial/modify-tut
     NavbarComponent,
     AddTutorialComponent,
     DetailTutorialComponent,
-    ModifyTutorialComponent
+    ModifyTutorialComponent,
+    OrderByComponent,
+    TutorialListComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

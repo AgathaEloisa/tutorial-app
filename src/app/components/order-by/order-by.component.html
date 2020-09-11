@@ -1,0 +1,9 @@
+  <!-- Select -->
+  <span>Ordenado por</span>
+<mat-form-field appearance="fill">
+  <mat-select>
+    <mat-option *ngFor="let search of orderBy" [value]="search.value">
+      {{search.value}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,1 +1,34 @@
+  <!-- Navbar -->
 <app-navbar [title]="title"></app-navbar>
+
+  <!-- search field -->
+  <form class="search">
+    <input type="text"
+           placeholder="Buscar por titulo"
+           [formControl]="control"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
+        {{street}}
+      </mat-option>
+    </mat-autocomplete>
+  </form>
+
+    <!-- Order By -->
+  <app-order-by></app-order-by>
+
+    <!-- Tutorial list -->
+  <app-tutorial-list></app-tutorial-list>
+
+    <!-- Buttons -->
+    <!-- delete all items -->
+    <button mat-stroked-button
+      class="btn-delete">ELIMINAR TODOS</button>
+
+    <!-- add item -->
+  <button mat-fab
+    color="primary"
+    aria-label="Add item"
+    class="add-item">
+    <mat-icon>+</mat-icon>
+  </button>
